@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "package": "dev.aster.cosmetics.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": ["ClientWorldMixin", "WorldRendererMixin", "InGameHudMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

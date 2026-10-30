@@ -1,0 +1,17 @@
+/target/
+/release/
+/.tools/
+/test-results/
+*.log
+
+# Local secrets and sign-in state
+.env
+*.env
+*.pem
+*.key
+credentials.json
+*secret*
+*token*
+
+# JS / local tooling if those trees get filled in
+node_modules/

@@ -1,0 +1,22 @@
+plugins { id 'fabric-loom' version '1.8.13'; id 'maven-publish' }
+version = '0.1.0'
+group = 'dev.aster'
+base { archivesName = 'aster-cosmetics' }
+repositories { mavenCentral() }
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.1'
+    mappings 'net.fabricmc:yarn:1.21.1+build.3:v2'
+    modImplementation 'net.fabricmc:fabric-loader:0.16.10'
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.110.0+1.21.1'
+    testImplementation 'junit:junit:4.13.2'
+}
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') { expand 'version': project.version }
+    from('native/target/release/aster_cosmetics_native.dll') { into 'native/windows-x86_64' }
+    doFirst {
+        if (!file('native/target/release/aster_cosmetics_native.dll').exists()) throw new GradleException('Build the Rust native engine first: cargo build --release --manifest-path native/Cargo.toml')
+    }
+}
+tasks.withType(JavaCompile).configureEach { options.release = 21; options.encoding = 'UTF-8' }
+java { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21; withSourcesJar() }

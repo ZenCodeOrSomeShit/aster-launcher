@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "aster_cosmetics",
+  "version": "${version}",
+  "name": "Aster Cosmetics",
+  "description": "Original configurable HUD, menus, and procedural shooting-star sky. No shader packs.",
+  "authors": ["Aster"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": { "client": ["dev.aster.cosmetics.AsterClient"] },
+  "mixins": ["aster-cosmetics.mixins.json"],
+  "depends": { "fabricloader": ">=0.16.0", "minecraft": "1.21.1", "java": ">=21", "fabric-api": "*" }
+}
